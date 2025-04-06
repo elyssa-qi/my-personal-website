@@ -199,7 +199,7 @@ const Home = () => {
                 className="space-y-12"
               >
                 <h1 className="text-7xl md:text-6xl font-[600] text-white text-center mb-16">
-                  Work Experience
+                  Experience
                 </h1>
 
                 <div className="relative">

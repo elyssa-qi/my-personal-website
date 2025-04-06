@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { Github, Mail, Linkedin, Download } from "lucide-react";
 import ProjectCard from "../components/ProjectCard";
+import Navbar from "../components/Navbar";
 
 interface Project {
   id: string;
@@ -90,29 +90,53 @@ export default function Projects() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center mb-8">
-          <Link
-            to="/"
-            className="flex items-center text-primary hover:text-primary/80 transition-colors"
-          >
-            <ArrowLeft className="mr-2 h-5 w-5" />
-            <span>Back to Home</span>
-          </Link>
+    <div className="min-h-screen bg-[#1f1f1f]">
+      <div className="relative">
+        <Navbar isFixed={false} />
+        {/* Name and Social Links positioned in navbar area */}
+        <div className="absolute top-0 left-0 w-full">
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex flex-col items-start">
+              <h1 className="text-[40px] font-seasons text-white mb-0">Elyssa Qi</h1>
+              <div className="flex space-x-3">
+                <a
+                  href="https://github.com/elyssa-qi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white/60 transition-colors"
+                >
+                  <Github className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://linkedin.com/in/elyssa-qi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white/60 transition-colors"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a
+                  href="elyssaqi314@gmail.com"
+                  className="text-white hover:text-white/60 transition-colors"
+                >
+                  <Mail className="h-5 w-5" />
+                </a>
+                <a
+                  href="/path-to-your-resume.pdf"
+                  download
+                  className="text-white hover:text-white/60 transition-colors"
+                >
+                  <Download className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-4">My Projects</h1>
-          <p className="text-muted-foreground max-w-2xl">
-            Here's a collection of projects I've worked on during my engineering
-            studies and personal time. Each project demonstrates different
-            skills and technologies I've mastered.
-          </p>
-        </div>
-
+      <div className="container mx-auto px-4 pt-20 pb-16">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-12"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -120,6 +144,7 @@ export default function Projects() {
           {projects.map((project) => (
             <ProjectCard
               key={project.id}
+              id={project.id}
               title={project.title}
               description={project.description}
               imageUrl={project.imageUrl}

@@ -1,63 +1,42 @@
 import React from "react";
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
   title: string;
   description: string;
-  image: string;
+  imageUrl: string;
   techStack: string[];
-  onClick?: () => void;
+  link?: string;
+  id: string;
 }
 
 const ProjectCard = ({
-  title = "Project Title",
-  description = "A brief description of the project and what technologies were used.",
-  image = "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=400&q=80",
-  techStack = ["React", "TypeScript", "Tailwind"],
-  onClick = () => console.log("Project card clicked"),
+  title,
+  description,
+  imageUrl,
+  id,
 }: ProjectCardProps) => {
   return (
-    <motion.div
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.3 }}
-      className="h-full"
-    >
-      <Card
-        className="h-full overflow-hidden cursor-pointer bg-white hover:shadow-lg transition-shadow duration-300"
-        onClick={onClick}
+    <Link to={`/projects/${id}`}>
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.2 }}
+        className="relative group"
       >
-        <div className="relative h-48 overflow-hidden">
+        <div className="aspect-[16/9] overflow-hidden bg-zinc-900">
           <img
-            src={image}
+            src={imageUrl}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            className="w-full h-full object-cover"
           />
         </div>
-
-        <CardHeader className="pb-2">
-          <h3 className="text-xl font-bold">{title}</h3>
-        </CardHeader>
-
-        <CardContent className="pb-2">
-          <p className="text-sm text-gray-600">{description}</p>
-        </CardContent>
-
-        <CardFooter className="flex flex-wrap gap-2 pt-0">
-          {techStack.map((tech, index) => (
-            <Badge key={index} variant="secondary" className="text-xs">
-              {tech}
-            </Badge>
-          ))}
-        </CardFooter>
-      </Card>
-    </motion.div>
+        <div className="mt-4 space-y-1">
+          <h3 className="text-xl text-white group-hover:underline">{title}</h3>
+          <p className="text-sm text-gray-400">{description}</p>
+        </div>
+      </motion.div>
+    </Link>
   );
 };
 

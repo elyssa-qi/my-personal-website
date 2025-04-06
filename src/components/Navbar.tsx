@@ -4,7 +4,11 @@ import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Navbar = () => {
+interface NavbarProps {
+  isFixed?: boolean;
+}
+
+const Navbar = ({ isFixed = true }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
@@ -33,47 +37,41 @@ const Navbar = () => {
   };
 
   return (
-    <motion.nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled 
+    <nav
+      className={`w-full z-50 transition-all duration-300 ${
+        isFixed ? 'fixed' : 'relative'
+      } ${
+        isScrolled && isFixed
           ? "bg-background/20 backdrop-blur-md border-b border-white/10 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] supports-[backdrop-filter]:bg-background/10" 
           : "bg-transparent border-b border-transparent"
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.3 }}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center py-4">
-        {/* Logo/Name */}
-        <Link to="/" className="text-xl font-bold text-white">
-          EQ
-        </Link>
-
+      <div className="container mx-auto px-4 flex justify-end items-center py-4">
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8 font-roboto text-white text-[18px]">
           <Link
             to="/"
-            className="hover:text-primary transition-colors font-[550]"
+            className="hover:text-white/60 transition-colors font-[550]"
             onClick={() => scrollToSection("home")}
           >
             Home
           </Link>
           <Link
             to="/"
-            className="hover:text-primary transition-colors font-[550]"
+            className="hover:text-white/60 transition-colors font-[550]"
             onClick={() => scrollToSection("experience")}
           >
             Experience
           </Link>
           <Link
             to="/projects"
-            className={`${location.pathname === "/projects" ? "text-primary" : ""} hover:text-primary transition-colors font-[550]`}
+            className={`${location.pathname === "/projects" ? "text-white/60" : ""} hover:text-white/60 transition-colors font-[550]`}
           >
             Projects
           </Link>
           <Link
             to="/"
-            className="hover:text-primary transition-colors font-[550]"
+            className="hover:text-white/60 transition-colors font-[550]"
             onClick={() => scrollToSection("contact")}
           >
             Contact
@@ -111,7 +109,7 @@ const Navbar = () => {
             <div className="container mx-auto px-4 py-4 flex flex-col space-y-4 font-roboto text-white text-[10px]">
               <Link
                 to="/"
-                className="hover:text-primary transition-colors font-[550]"
+                className="hover:text-white/60 transition-colors font-[550]"
                 onClick={() => {
                   scrollToSection("home");
                   setIsOpen(false);
@@ -121,7 +119,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/"
-                className="hover:text-primary transition-colors font-[550]"
+                className="hover:text-white/60 transition-colors font-[550]"
                 onClick={() => {
                   scrollToSection("experience");
                   setIsOpen(false);
@@ -132,15 +130,15 @@ const Navbar = () => {
               <Link
                 to="/projects"
                 className={`${
-                  location.pathname === "/projects" ? "text-primary" : ""
-                } hover:text-primary transition-colors font-[550]`}
+                  location.pathname === "/projects" ? "text-white/60" : ""
+                } hover:text-white/60 transition-colors font-[550]`}
                 onClick={() => setIsOpen(false)}
               >
                 Projects
               </Link>
               <Link
                 to="/"
-                className="hover:text-primary transition-colors font-[550]"
+                className="hover:text-white/60 transition-colors font-[550]"
                 onClick={() => {
                   scrollToSection("contact");
                   setIsOpen(false);
@@ -152,7 +150,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 };
 
