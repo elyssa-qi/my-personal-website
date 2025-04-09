@@ -3,6 +3,10 @@ import { motion } from "framer-motion";
 import { Github, Mail, Linkedin, Download } from "lucide-react";
 import ProjectCard from "../components/ProjectCard";
 import Navbar from "../components/Navbar";
+import casrImage from "../images/casrimg.png";
+import uwImage from "../images/uraimg.png";
+import compImage from "../images/sumimg.png";
+import pwrImage from "../images/pwerpimg.png";
 
 interface Project {
   id: string;
@@ -18,41 +22,37 @@ export default function Projects() {
   const projects: Project[] = [
     {
       id: "1",
-      title: "E-Commerce Platform",
+      title: "CASR",
       description:
-        "A full-stack e-commerce platform with user authentication, product catalog, and payment processing.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
+        "Full-stack development for a nationwide non-profit organization.",
+      imageUrl: casrImage,
       techStack: ["React", "Node.js", "MongoDB", "Stripe"],
       link: "https://example.com/project1",
     },
     {
       id: "2",
-      title: "Weather App",
+      title: "University of Waterloo",
       description:
-        "A responsive weather application that provides real-time weather data based on user location.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80",
+        "Undergraduate Research Assistant for Behaviour Analytics and Modelling Lab.",
+      imageUrl: uwImage,
       techStack: ["JavaScript", "OpenWeather API", "CSS"],
       link: "https://example.com/project2",
     },
     {
       id: "3",
-      title: "Task Management System",
+      title: "ComparaSum",
       description:
         "A collaborative task management system with real-time updates and team collaboration features.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+      imageUrl: compImage,
       techStack: ["React", "Firebase", "Material UI"],
       link: "https://example.com/project3",
     },
     {
       id: "4",
-      title: "Machine Learning Model",
+      title: "Power Prompt",
       description:
         "A machine learning model for image classification using convolutional neural networks.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+      imageUrl: pwrImage,
       techStack: ["Python", "TensorFlow", "Keras"],
       link: "https://example.com/project4",
     },

@@ -1,6 +1,10 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import casrImage from "../images/casrimg.png";
+import uwImage from "../images/uraimg.png";
+import compImage from "../images/sumimg.png";
+import pwrImage from "../images/pwerpimg.png";
 
 interface Project {
   id: string;
@@ -18,16 +22,48 @@ interface Project {
 const projects: Project[] = [
   {
     id: "1",
-    title: "Sandbox",
+    title: "CASR",
     description: "AI-powered, collaborative code editing environment.",
-    imageUrl: "/path-to-sandbox-image.jpg",
+    imageUrl: casrImage,
     techStack: ["Next.js", "TypeScript"],
     github: "https://github.com/yourusername/sandbox",
     timeline: "5 Weeks, April - May 2024",
     overview: "Sandbox is an open source, AI-powered, collaborative code editing environment.",
     tools: ["Next.js", "TypeScript"]
   },
-  // ... other projects
+  {
+    id: "2",
+    title: "University of Waterloo",
+    description: "AI-powered, collaborative code editing environment.",
+    imageUrl: uwImage,
+    techStack: ["Next.js", "TypeScript"],
+    github: "https://github.com/yourusername/sandbox",
+    timeline: "5 Weeks, April - May 2024",
+    overview: "Sandbox is an open source, AI-powered, collaborative code editing environment.",
+    tools: ["Next.js", "TypeScript"]
+  }, // ... other projects
+  {
+    id: "3",
+    title: "ComparaSum",
+    description: "AI-powered, collaborative code editing environment.",
+    imageUrl: compImage,
+    techStack: ["Next.js", "TypeScript"],
+    github: "https://github.com/yourusername/sandbox",
+    timeline: "5 Weeks, April - May 2024",
+    overview: "Sandbox is an open source, AI-powered, collaborative code editing environment.",
+    tools: ["Next.js", "TypeScript"]
+  }, 
+  {
+    id: "4",
+    title: "Power Prompt",
+    description: "AI-powered, collaborative code editing environment.",
+    imageUrl: pwrImage,
+    techStack: ["Next.js", "TypeScript"],
+    github: "https://github.com/yourusername/sandbox",
+    timeline: "5 Weeks, April - May 2024",
+    overview: "Sandbox is an open source, AI-powered, collaborative code editing environment.",
+    tools: ["Next.js", "TypeScript"]
+  }, 
 ];
 
 export default function ProjectDetail() {
