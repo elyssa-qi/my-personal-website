@@ -7,6 +7,7 @@ import casrImage from "../images/casrimg.png";
 import uwImage from "../images/uraimg.png";
 import compImage from "../images/sumimg.png";
 import pwrImage from "../images/pwerpimg.png";
+import pinkImage from "../images/pinksimg.png";
 
 interface Project {
   id: string;
@@ -58,11 +59,10 @@ export default function Projects() {
     },
     {
       id: "5",
-      title: "Social Media Dashboard",
+      title: "The Pink Stairs",
       description:
         "A dashboard for tracking and analyzing social media metrics across multiple platforms.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80",
+      imageUrl: pinkImage,
       techStack: ["React", "D3.js", "Social Media APIs"],
       link: "https://example.com/project5",
     },

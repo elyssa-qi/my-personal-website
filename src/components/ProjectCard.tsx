@@ -20,8 +20,6 @@ const ProjectCard = ({
   return (
     <Link to={`/projects/${id}`}>
       <motion.div
-        whileHover={{ scale: 1.02 }}
-        transition={{ duration: 0.2 }}
         className="relative group"
       >
         <div className="aspect-[16/9] overflow-hidden bg-zinc-900">

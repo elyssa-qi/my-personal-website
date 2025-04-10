@@ -5,6 +5,7 @@ import casrImage from "../images/casrimg.png";
 import uwImage from "../images/uraimg.png";
 import compImage from "../images/sumimg.png";
 import pwrImage from "../images/pwerpimg.png";
+import pinkImage from "../images/pinksimg.png";
 
 interface Project {
   id: string;
@@ -58,6 +59,17 @@ const projects: Project[] = [
     title: "Power Prompt",
     description: "AI-powered, collaborative code editing environment.",
     imageUrl: pwrImage,
+    techStack: ["Next.js", "TypeScript"],
+    github: "https://github.com/yourusername/sandbox",
+    timeline: "5 Weeks, April - May 2024",
+    overview: "Sandbox is an open source, AI-powered, collaborative code editing environment.",
+    tools: ["Next.js", "TypeScript"]
+  }, 
+  {
+    id: "5",
+    title: "The Pink Stairs",
+    description: "AI-powered, collaborative code editing environment.",
+    imageUrl: pinkImage,
     techStack: ["Next.js", "TypeScript"],
     github: "https://github.com/yourusername/sandbox",
     timeline: "5 Weeks, April - May 2024",
