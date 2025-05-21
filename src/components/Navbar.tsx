@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,12 +12,12 @@ const Navbar = ({ isFixed = true }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Handle scroll effect for navbar
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 0);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -26,13 +26,20 @@ const Navbar = ({ isFixed = true }: NavbarProps) => {
 
   // Handle smooth scrolling for same-page navigation
   const scrollToSection = (sectionId: string) => {
-    // Only apply smooth scrolling on home page
-    if (location.pathname === "/") {
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Wait for navigation to complete before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
-      setIsOpen(false);
     }
   };
 
@@ -66,6 +73,9 @@ const Navbar = ({ isFixed = true }: NavbarProps) => {
           <Link
             to="/projects"
             className={`${location.pathname === "/projects" ? "text-white/60" : ""} hover:text-white/60 transition-colors font-[550]`}
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}
           >
             Projects
           </Link>
@@ -132,7 +142,10 @@ const Navbar = ({ isFixed = true }: NavbarProps) => {
                 className={`${
                   location.pathname === "/projects" ? "text-white/60" : ""
                 } hover:text-white/60 transition-colors font-[550]`}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  setIsOpen(false);
+                }}
               >
                 Projects
               </Link>

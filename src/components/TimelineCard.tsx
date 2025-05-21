@@ -27,7 +27,7 @@ const TimelineCard = ({ title, role, period, description, isLeft, index }: Timel
           <p className="text-lg text-white/90 font-medium mb-1">{role}</p>
           <p className="text-sm text-white/70 mb-4">{period}</p>
         </div>
-        <p className="text-white/80 text-base">{description}</p>
+        <div className="text-white/80 text-base whitespace-pre-line">{description}</div>
       </div>
     </motion.div>
   );

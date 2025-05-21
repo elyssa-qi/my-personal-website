@@ -7,7 +7,10 @@ import casrImage from "../images/casrimg.png";
 import uwImage from "../images/uraimg.png";
 import compImage from "../images/sumimg.png";
 import pwrImage from "../images/pwerpimg.png";
-import pinkImage from "../images/pinksimg.png";
+import pinkImage from "../images/pinkyimg.png";
+import sickImage from "../images/sickyimg.png";
+import novaImage from "../images/technovaimg.png";
+import rocketImage from "../images/rocketryimg.png";
 
 interface Project {
   id: string;
@@ -43,7 +46,7 @@ export default function Projects() {
       id: "3",
       title: "ComparaSum",
       description:
-        "A collaborative task management system with real-time updates and team collaboration features.",
+        "AI-powered review summarizer that makes online shopping more efficient.",
       imageUrl: compImage,
       techStack: ["React", "Firebase", "Material UI"],
       link: "https://example.com/project3",
@@ -52,7 +55,7 @@ export default function Projects() {
       id: "4",
       title: "Power Prompt",
       description:
-        "A machine learning model for image classification using convolutional neural networks.",
+        "Chrome extension that visualizes the energy consumption of AI interactions.",
       imageUrl: pwrImage,
       techStack: ["Python", "TensorFlow", "Keras"],
       link: "https://example.com/project4",
@@ -61,18 +64,35 @@ export default function Projects() {
       id: "5",
       title: "The Pink Stairs",
       description:
-        "A dashboard for tracking and analyzing social media metrics across multiple platforms.",
+        "Full-stack development for one of the largest youth-led non-profits globally.",
       imageUrl: pinkImage,
       techStack: ["React", "D3.js", "Social Media APIs"],
       link: "https://example.com/project5",
     },
     {
       id: "6",
-      title: "Mobile Fitness App",
+      title: "Koziarski Lab",
       description:
         "A mobile application for tracking workouts, nutrition, and fitness progress.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80",
+      imageUrl: sickImage,
+      techStack: ["React Native", "Redux", "Firebase"],
+      link: "https://example.com/project6",
+    },
+    {
+      id: "7",
+      title: "TechNova",
+      description:
+        "Design for University of Waterloo’s First Women+ in Tech Hackathon",
+      imageUrl: novaImage,
+      techStack: ["React Native", "Redux", "Firebase"],
+      link: "https://example.com/project6",
+    },
+    {
+      id: "8",
+      title: "Waterloo Rocketry",
+      description:
+        "Software member for Waterloo's rocketry design team.",
+      imageUrl: rocketImage,
       techStack: ["React Native", "Redux", "Firebase"],
       link: "https://example.com/project6",
     },

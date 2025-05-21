@@ -5,7 +5,10 @@ import casrImage from "../images/casrimg.png";
 import uwImage from "../images/uraimg.png";
 import compImage from "../images/sumimg.png";
 import pwrImage from "../images/pwerpimg.png";
-import pinkImage from "../images/pinksimg.png";
+import pinkImage from "../images/pinkyimg.png";
+import sickImage from "../images/sickyimg.png";
+import novaImage from "../images/technovaimg.png";
+import rocketImage from "../images/rocketryimg.png";
 
 interface Project {
   id: string;
@@ -76,6 +79,39 @@ const projects: Project[] = [
     overview: "Sandbox is an open source, AI-powered, collaborative code editing environment.",
     tools: ["Next.js", "TypeScript"]
   }, 
+  {
+    id: "6",
+    title: "Koziarski Lab",
+    description: "AI-powered, collaborative code editing environment.",
+    imageUrl: sickImage,
+    techStack: ["Next.js", "TypeScript"],
+    github: "https://github.com/yourusername/sandbox",
+    timeline: "5 Weeks, April - May 2024",
+    overview: "Sandbox is an open source, AI-powered, collaborative code editing environment.",
+    tools: ["Next.js", "TypeScript"]
+  }, 
+  {
+    id: "7",
+    title: "TechNova",
+    description: "AI-powered, collaborative code editing environment.",
+    imageUrl: novaImage,
+    techStack: ["Next.js", "TypeScript"],
+    github: "https://github.com/yourusername/sandbox",
+    timeline: "5 Weeks, April - May 2024",
+    overview: "Sandbox is an open source, AI-powered, collaborative code editing environment.",
+    tools: ["Next.js", "TypeScript"]
+  }, 
+  {
+    id: "8",
+    title: "Waterloo Rocketry",
+    description: "AI-powered, collaborative code editing environment.",
+    imageUrl: rocketImage,
+    techStack: ["Next.js", "TypeScript"],
+    github: "https://github.com/yourusername/sandbox",
+    timeline: "5 Weeks, April - May 2024",
+    overview: "Sandbox is an open source, AI-powered, collaborative code editing environment.",
+    tools: ["Next.js", "TypeScript"]
+  }, 
 ];
 
 export default function ProjectDetail() {
@@ -132,20 +168,20 @@ export default function ProjectDetail() {
         {/* Project Details */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h2 className="text-xl mb-1">Timeline</h2>
-            <p className="text-gray-400 mb-4">{project.timeline}</p>
+            <h2 className="text-xl mb-1 text-white">Timeline</h2>
+            <p className="text-white mb-4">{project.timeline}</p>
             
-            <h2 className="text-xl mb-1">Tools</h2>
+            <h2 className="text-xl mb-1 text-white">Tools</h2>
             <div className="space-y-0.5">
               {project.tools?.map((tool, index) => (
-                <p key={index} className="text-gray-400">{tool}</p>
+                <p key={index} className="text-white">{tool}</p>
               ))}
             </div>
           </div>
 
           <div>
-            <h2 className="text-xl mb-1">Overview</h2>
-            <p className="text-gray-400">{project.overview}</p>
+            <h2 className="text-xl mb-1 text-white">Overview</h2>
+            <p className="text-white">{project.overview}</p>
           </div>
         </div>
       </div>
