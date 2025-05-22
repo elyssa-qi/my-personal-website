@@ -73,7 +73,7 @@ export default function Projects() {
       id: "6",
       title: "Koziarski Lab",
       description:
-        "A mobile application for tracking workouts, nutrition, and fitness progress.",
+        "Machine learning project to predict lifespan extension potential of chemical compounds.",
       imageUrl: sickImage,
       techStack: ["React Native", "Redux", "Firebase"],
       link: "https://example.com/project6",
