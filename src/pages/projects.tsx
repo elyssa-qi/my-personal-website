@@ -82,7 +82,7 @@ export default function Projects() {
       id: "7",
       title: "TechNova",
       description:
-        "Design for University of Waterloo’s First Women+ in Tech Hackathon",
+        "Design for University of Waterloo's First Women+ in Tech Hackathon",
       imageUrl: novaImage,
       techStack: ["React Native", "Redux", "Firebase"],
       link: "https://example.com/project6",
@@ -136,13 +136,13 @@ export default function Projects() {
                   <Linkedin className="h-5 w-5" />
                 </a>
                 <a
-                  href="elyssaqi314@gmail.com"
+                  href="mailto:elyssaqi314@gmail.com"
                   className="text-white hover:text-white/60 transition-colors"
                 >
                   <Mail className="h-5 w-5" />
                 </a>
                 <a
-                  href="/path-to-your-resume.pdf"
+                  href="https://drive.google.com/file/d/1SFLogNH90TOeEn9-h5lnbZPbF69euYEM/view?usp=sharing"
                   download
                   className="text-white hover:text-white/60 transition-colors"
                 >

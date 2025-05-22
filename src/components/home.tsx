@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Mail, Github, Linkedin, ExternalLink } from "lucide-react";
+import { ArrowRight, Mail, Github, Linkedin, ExternalLink, Download } from "lucide-react";
 import Navbar from "./Navbar";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
@@ -14,22 +14,52 @@ import TimelineCard from "./TimelineCard";
 // Create a context for the shared timer
 export const TimerContext = React.createContext<number>(0);
 
-const LoadingScreen = () => {
+const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
+  const [percent, setPercent] = React.useState(0);
+  const [slideOut, setSlideOut] = React.useState(false);
+  const [started, setStarted] = React.useState(false);
+  React.useEffect(() => {
+    // Wait 500ms before starting the count
+    const delay = setTimeout(() => setStarted(true), 500);
+    return () => clearTimeout(delay);
+  }, []);
+  React.useEffect(() => {
+    if (!started) return;
+    if (percent < 100) {
+      const interval = setInterval(() => {
+        setPercent((prev) => (prev < 100 ? prev + 1 : 100));
+      }, 24); // slower count up
+      return () => clearInterval(interval);
+    } else {
+      // Trigger slide out after a short pause at 100
+      const timeout = setTimeout(() => setSlideOut(true), 400);
+      return () => clearTimeout(timeout);
+    }
+  }, [percent, started]);
+  // Call onFinish after slide out animation
+  React.useEffect(() => {
+    if (slideOut) {
+      const timeout = setTimeout(() => {
+        onFinish();
+      }, 800); // match slide out duration
+      return () => clearTimeout(timeout);
+    }
+  }, [slideOut, onFinish]);
   return (
     <motion.div
       initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1, ease: "easeInOut" }}
-      className="fixed inset-0 z-50 bg-background flex items-center justify-center"
+      className="fixed inset-0 z-50 bg-white flex items-center justify-center"
     >
       <motion.div
-        initial={{ scale: 0.5, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 1.2, opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-primary text-4xl font-bold"
+        initial={{ opacity: 0 }}
+        animate={slideOut ? { x: '-100vw', opacity: 0 } : { opacity: 1, x: 0 }}
+        transition={{ duration: slideOut ? 0.8 : 0.5, ease: 'easeInOut' }}
+        className="text-[12vw] font-roboto absolute bottom-[-2vw] right-[2vw] bg-gradient-to-r from-[#da3f49] via-[#e590ae] to-[#e9a548] bg-clip-text text-transparent"
       >
-        EQ
+        {percent}%
       </motion.div>
     </motion.div>
   );
@@ -37,6 +67,7 @@ const LoadingScreen = () => {
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [showLoadingScreen, setShowLoadingScreen] = useState(true);
   const [isGradientMounted, setIsGradientMounted] = useState(false);
   const [timerCount, setTimerCount] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -47,11 +78,6 @@ const Home = () => {
     const gradientTimer = setTimeout(() => {
       setIsGradientMounted(true);
     }, 500);
-
-    // Then, wait a bit longer before removing the loading screen
-    const loadingTimer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
 
     const timer = setInterval(() => {
       setTimerCount(prev => prev + 1);
@@ -78,7 +104,6 @@ const Home = () => {
 
     return () => {
       clearTimeout(gradientTimer);
-      clearTimeout(loadingTimer);
       clearInterval(timer);
       window.removeEventListener('scroll', handleScroll);
       if (scrollTimeoutRef.current) {
@@ -91,7 +116,12 @@ const Home = () => {
     <TimerContext.Provider value={timerCount}>
       <div className="min-h-screen bg-background relative">
         <AnimatePresence mode="wait">
-          {isLoading && <LoadingScreen />}
+          {showLoadingScreen && (
+            <LoadingScreen onFinish={() => {
+              setShowLoadingScreen(false);
+              setIsLoading(false);
+            }} />
+          )}
         </AnimatePresence>
 
         <div className="fixed inset-0 z-0">
@@ -300,29 +330,65 @@ const Home = () => {
               <p className="text-sm text-white">
                 {new Date().getFullYear()} © Elyssa Qi
               </p>
-              <div className="flex gap-4 mt-4 md:mt-0">
-                <a
-                  href="https://github.com/elyssa-qi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub Profile"
-                >
-                  <Github className="h-5 w-5 text-white/80 hover:text-white transition-colors" />
-                </a>
-                <a
-                  href="https://linkedin.com/in/elyssa-qi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn Profile"
-                >
-                  <Linkedin className="h-5 w-5 text-white/80 hover:text-white transition-colors" />
-                </a>
-                <a 
-                  href="mailto:elyssaqi314@gmail.com" 
-                  aria-label="Email Me"
-                >
-                  <Mail className="h-5 w-5 text-white/80 hover:text-white transition-colors" />
-                </a>
+              <div className="flex gap-1 mt-4 md:mt-0 relative ml-auto">
+                {/* State to track which icon is hovered, and add margin to the next icon only when hovered */}
+                {(() => {
+                  const [hovered, setHovered] = React.useState<number | null>(null);
+                  const icons = [
+                    {
+                      key: 'github',
+                      href: 'https://github.com/elyssa-qi',
+                      label: 'GitHub',
+                      icon: <Github className="h-5 w-5 text-white/80 hover:text-white transition-colors" />,
+                    },
+                    {
+                      key: 'linkedin',
+                      href: 'https://linkedin.com/in/elyssa-qi',
+                      label: 'LinkedIn',
+                      icon: <Linkedin className="h-5 w-5 text-white/80 hover:text-white transition-colors" />,
+                    },
+                    {
+                      key: 'email',
+                      href: 'mailto:elyssaqi314@gmail.com',
+                      label: 'Email',
+                      icon: <Mail className="h-5 w-5 text-white/80 hover:text-white transition-colors" />,
+                    },
+                    {
+                      key: 'resume',
+                      href: 'https://drive.google.com/file/d/1SFLogNH90TOeEn9-h5lnbZPbF69euYEM/view?usp=sharing',
+                      label: 'Resume',
+                      icon: <Download className="h-5 w-5 text-white/80 hover:text-white transition-colors" />,
+                    },
+                  ];
+                  return (
+                    <>
+                      {icons.map(({ key, href, label, icon }, idx) => (
+                        <React.Fragment key={key}>
+                          <a
+                            href={href}
+                            target={key === 'email' ? undefined : '_blank'}
+                            rel={key === 'email' ? undefined : 'noopener noreferrer'}
+                            aria-label={label}
+                            className="flex items-center group relative"
+                            onMouseEnter={() => setHovered(idx)}
+                            onMouseLeave={() => setHovered(null)}
+                          >
+                            {icon}
+                            <span
+                              className={`overflow-hidden whitespace-nowrap ml-2 text-white text-sm transition-all duration-200 ${hovered === idx ? 'w-auto opacity-100 max-w-xs' : 'w-0 opacity-0 max-w-0'}`}
+                            >
+                              {label}
+                            </span>
+                          </a>
+                          {/* Add margin to the next icon only when hovered */}
+                          {hovered === idx && idx < icons.length - 1 && (
+                            <span className="transition-all duration-200" style={{ width: '0.75rem', display: 'inline-block' }} />
+                          )}
+                        </React.Fragment>
+                      ))}
+                    </>
+                  );
+                })()}
               </div>
             </div>
           </div>

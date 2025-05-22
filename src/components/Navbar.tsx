@@ -55,7 +55,7 @@ const Navbar = ({ isFixed = true }: NavbarProps) => {
     >
       <div className="container mx-auto px-4 flex justify-end items-center py-4">
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8 font-roboto text-white text-[18px]">
+        <div className="hidden md:flex space-x-8 font-roboto text-white text-[18px] mt-1">
           <Link
             to="/"
             className="hover:text-white/60 transition-colors font-[550]"
@@ -78,13 +78,6 @@ const Navbar = ({ isFixed = true }: NavbarProps) => {
             }}
           >
             Projects
-          </Link>
-          <Link
-            to="/"
-            className="hover:text-white/60 transition-colors font-[550]"
-            onClick={() => scrollToSection("contact")}
-          >
-            Contact
           </Link>
         </div>
 
@@ -148,16 +141,6 @@ const Navbar = ({ isFixed = true }: NavbarProps) => {
                 }}
               >
                 Projects
-              </Link>
-              <Link
-                to="/"
-                className="hover:text-white/60 transition-colors font-[550]"
-                onClick={() => {
-                  scrollToSection("contact");
-                  setIsOpen(false);
-                }}
-              >
-                Contact
               </Link>
             </div>
           </motion.div>
