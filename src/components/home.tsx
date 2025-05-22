@@ -306,7 +306,7 @@ const Home = () => {
                       />
                       <TimelineCard
                         title="Markham Mayor's Youth Council"
-                        role="Project Manager & Marketing Coordinator"
+                        role="Project Manager & Web Developer"
                         period="September 2020 - May 2024"
                         description={`• Built Markham youth council website (JavaScript) in partnership with City of Markham
 • Enabled multilingual access via Google Translate API for 1,500+ monthly visitors
