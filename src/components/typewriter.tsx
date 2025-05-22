@@ -6,7 +6,7 @@ const TypewriterComponent: React.FC = () => {
 
   useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ["Hello!", "你好!", "Bonjour!", "Ciao!", "こんにちは!", "안녕하세요!", "ನಮಸ್ಕಾರ!", "नमस्ते!"],
+      strings: ["नमस्ते!", "ನಮಸ್ಕಾರ!", "Hello!", "你好!", "Bonjour!", "Ciao!", "こんにちは!", "안녕하세요!"],
       typeSpeed: 70,
       backSpeed: 50,
       loop: true,

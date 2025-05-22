@@ -11,6 +11,7 @@ import pinkImage from "../images/pinkyimg.png";
 import sickImage from "../images/sickyimg.png";
 import novaImage from "../images/technovaimg.png";
 import rocketImage from "../images/rocketryimg.png";
+import { Link } from "react-router-dom";
 
 interface Project {
   id: string;
@@ -114,10 +115,12 @@ export default function Projects() {
       <div className="relative">
         <Navbar isFixed={false} />
         {/* Name and Social Links positioned in navbar area */}
-        <div className="absolute top-0 left-0 w-full">
+        <div className="absolute top-0 left-0 w-full pointer-events-none">
           <div className="container mx-auto px-4 py-4">
             <div className="flex flex-col items-start">
-              <h1 className="text-[40px] font-seasons text-white mb-0">Elyssa Qi</h1>
+              <Link to="/" className="z-20 relative pointer-events-auto">
+                <h1 className="text-[40px] font-seasons text-white mb-0 cursor-pointer">Elyssa Qi</h1>
+              </Link>
               <div className="flex space-x-3">
                 <a
                   href="https://github.com/elyssa-qi"
