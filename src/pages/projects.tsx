@@ -126,7 +126,7 @@ export default function Projects() {
                   href="https://github.com/elyssa-qi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-white/60 transition-colors"
+                  className="text-white hover:text-white/60 transition-colors pointer-events-auto"
                 >
                   <Github className="h-5 w-5" />
                 </a>
@@ -134,20 +134,20 @@ export default function Projects() {
                   href="https://linkedin.com/in/elyssa-qi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-white/60 transition-colors"
+                  className="text-white hover:text-white/60 transition-colors pointer-events-auto"
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
                 <a
                   href="mailto:elyssaqi314@gmail.com"
-                  className="text-white hover:text-white/60 transition-colors"
+                  className="text-white hover:text-white/60 transition-colors pointer-events-auto"
                 >
                   <Mail className="h-5 w-5" />
                 </a>
                 <a
                   href="https://drive.google.com/file/d/1SFLogNH90TOeEn9-h5lnbZPbF69euYEM/view?usp=sharing"
                   download
-                  className="text-white hover:text-white/60 transition-colors"
+                  className="text-white hover:text-white/60 transition-colors pointer-events-auto"
                 >
                   <Download className="h-5 w-5" />
                 </a>
