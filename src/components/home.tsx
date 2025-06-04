@@ -288,9 +288,9 @@ const Home = () => {
                         title="Dima Technology Inc."
                         role="Software Engineer Intern"
                         period="January 2025 - April 2025"
-                        description={`• Realigned website with post-merger strategy by rebuilding it in TypeScript and React.
-• Saved 10+ hours weekly by automating repetitive tasks with Python scripts.
-• Streamlined sales reporting via a Java system automating analytics and CSV generation.`}
+                        description={`• Engineered FastAPI data pipelines with optimized MongoDB indexing and Redis caching, enabling sub-second search responses across 7,000+ chemical products, reducing API latency by 50%.
+• Built ETL pipelines for survey data in Python, automating 100+ responses and cutting processing by 90%.
+• Designed an internal dashboard with React and TypeScript to visualize FastAPI-processed data, enabling real-time monitoring of 7,000+ SKUs and reducing manual data requests by 80% via automated CSV exports.`}
                         isLeft={false}
                         index={2}
                       />
@@ -355,7 +355,7 @@ const Home = () => {
                     },
                     {
                       key: 'resume',
-                      href: 'https://drive.google.com/file/d/1SFLogNH90TOeEn9-h5lnbZPbF69euYEM/view?usp=sharing',
+                      href: 'https://drive.google.com/file/d/16yb63L0SoQQWLKbWfW1kcZLFNimVHD8s/view?usp=sharing',
                       label: 'Resume',
                       icon: <Download className="h-5 w-5 text-white/80 hover:text-white transition-colors" />,
                     },

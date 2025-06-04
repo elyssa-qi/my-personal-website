@@ -145,7 +145,7 @@ export default function Projects() {
                   <Mail className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://drive.google.com/file/d/1SFLogNH90TOeEn9-h5lnbZPbF69euYEM/view?usp=sharing"
+                  href="https://drive.google.com/file/d/16yb63L0SoQQWLKbWfW1kcZLFNimVHD8s/view?usp=sharing"
                   download
                   className="text-white hover:text-white/60 transition-colors pointer-events-auto"
                 >
