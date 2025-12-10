@@ -41,7 +41,6 @@ const projects: Project[] = [
     description: "AI-powered, collaborative code editing environment.",
     imageUrl: uwImage,
     techStack: ["Next.js", "TypeScript"],
-    github: "https://github.com/elyssa-qi/chicago-crime-rates",
     timeline: "January 2025 - Present",
     overview: "Our mission is to leverage behavioural and crime report data to create an intelligent, pattern-recognition tool that supports faster, more informed decision-making by law enforcement. By learning from the past, we aim to bring structure and insights to future investigations.",
     tools: ["Python", "PyTorch"]

@@ -233,8 +233,8 @@ const Home = () => {
                         </h2>
                       </div>
                       <p className="text-2xl text-white/80 font-roboto font-[350] leading-relaxed">
-                        Currently a first year engineering student at the University of Waterloo.
-                        I am passionate about building at the intersection of Software and Design.
+                        Currently a second year engineering student at the University of Waterloo.
+                        I am passionate about building at the intersection of Software and AI.
                         My hobbies include playing volleyball, trying new food, and spending time
                         with family & friends.
                       </p>
@@ -265,53 +265,52 @@ const Home = () => {
                     {/* Timeline content */}
                     <div className="relative">
                       <TimelineCard
-                        title="Waterloo Rocketry"
-                        role="Software Developer"
-                        period="February 2025 - Present"
-                        description={`• Improved rocket simulation accuracy by 65% with a Java plugin analyzing 10,000+ launch permutations.
-• Automated CSV data export in Java, saving 5+ hours of manual work weekly.
-• Cut monitoring latency by 40% by leading development of a Python/Folium live sensor map for 50+ rocket feeds.`}
+                        title="University of Waterloo"
+                        role="Undergraduate Research Assistant"
+                        period="January 2025 - Present"
+                        description={`• Built ML models (Logistic Regression, Decision Tree, ARIMA) on 1M+ crime records to identify patterns and forecast trends.
+• Created automated Python ETL pipeline for cleaning and merging data.
+• Developed React dashboard with hotspot map and ARIMA-based trend forecasts.`}
                         isLeft={false}
                         index={0}
                       />
                       <TimelineCard
-                        title="University of Waterloo"
-                        role="Undergraduate Research Assistant"
-                        period="January 2025 - Present"
-                        description={`• Enabled data-driven policing decisions by analyzing Chicago crime data under Dr. Ken McKay's supervision.
-• Uncovered crime patterns via geospatial visualizations (Python) and ARIMA time series forecasting.
-• Achieved 85% burglary prediction accuracy by building PyTorch forecasting models.`}
+                        title="WAT.ai"
+                        role="Machine Learning Engineer"
+                        period="May 2025 - Present"
+                        description={`• Built multi-person emotion and body language analysis system using Meta Llama-4-Scout-17B.
+• Developed AI pipeline with HuggingFace Router, OpenRouter, LangChain, and Pydantic for structured processing.
+• Improved detection accuracy via Google Gemini 2.0 prompt engineering.`}
                         isLeft={true}
                         index={1}
                       />
                       <TimelineCard
-                        title="Dima Technology Inc."
-                        role="Software Engineer Intern"
-                        period="January 2025 - April 2025"
-                        description={`• Engineered FastAPI data pipelines with optimized MongoDB indexing and Redis caching, enabling sub-second search responses across 7,000+ chemical products, reducing API latency by 50%.
-• Built ETL pipelines for survey data in Python, automating 100+ responses and cutting processing by 90%.
-• Designed an internal dashboard with React and TypeScript to visualize FastAPI-processed data, enabling real-time monitoring of 7,000+ SKUs and reducing manual data requests by 80% via automated CSV exports.`}
+                        title="Symmetry Commerce"
+                        role="Software Developer Intern"
+                        period="September 2025 - December 2025"
+                        description={`• Migrated 1M+ client records to Shopify using Node.js ETL and GraphQL.
+• Built internal tools saving 10+ hours/week with JavaScript, Python, and Google Workspace APIs.
+• Developed reusable Node.js API endpoints on PostgreSQL for automated data workflows.`}
                         isLeft={false}
                         index={2}
                       />
                       <TimelineCard
-                        title="CYASR"
-                        role="Full-Stack Web Developer"
-                        period="August 2024 - December 2024"
-                        description={`• Built a responsive full-stack app (React, TypeScript, Tailwind) with 88% Lighthouse score
-• Developed a SendGrid contact form with validation and 100% delivery success
-• Deployed with CI/CD for 99.9% uptime and performance monitoring`}
+                        title="Wat Street"
+                        role="Machine Learning Engineer"
+                        period="May 2025 - August 2025"
+                        description={`• Built data pipelines and Python tools for agent-based economic simulations.
+• Implemented PyTorch models for multi-agent neural networks.
+• Worked on training workflows, loss optimization, and forecasting architectures.`}
                         isLeft={true}
                         index={3}
                       />
                       <TimelineCard
-                        title="Markham Mayor's Youth Council"
-                        role="Project Manager & Web Developer"
-                        period="September 2020 - May 2024"
-                        description={`• Built Markham youth council website (JavaScript) in partnership with City of Markham
-• Enabled multilingual access via Google Translate API for 1,500+ monthly visitors
-• Boosted event attendance 300% (3,200+ attendees) by leading 10+ member marketing team
-• Created promotional graphics (Photoshop/Figma) featured on city billboards and social media`}
+                        title="Dima Technology Inc."
+                        role="Software Engineering Intern"
+                        period="January 2025 - April 2025"
+                        description={`• Optimized backend with FastAPI, MongoDB, and Redis, improving performance 75%.
+• Automated survey data processing with Python ETL pipelines.
+• Built React dashboard for real-time SKU monitoring, reducing manual work 80%.`}
                         isLeft={false}
                         index={4}
                       />
